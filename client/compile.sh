@@ -80,26 +80,26 @@ daemon () {
 
 compile () {
   echo "Compiling client code to crypton.js..."
-  VERSION=`cat ./package.json | $JSON_PATH version`
+  VERSION=`cat $SCRIPT_PATH/package.json | $JSON_PATH version`
   mkdir -p dist
   cat \
-    src/core.js \
-    src/account.js \
-    src/session.js \
-    src/container.js \
-    src/transaction.js \
-    src/peer.js \
-    src/message.js \
-    src/inbox.js \
-    src/diff.js \
-    src/work.js \
-    src/card.js \
-    src/item.js \
-    src/history.js \
-    src/errors.js \
-    node_modules/bcryptjs/dist/bcrypt.js \
-    node_modules/circular-json/build/circular-json.js \
-    src/vendor/*.js \
+    $SCRIPT_PATH/src/core.js \
+    $SCRIPT_PATH/src/account.js \
+    $SCRIPT_PATH/src/session.js \
+    $SCRIPT_PATH/src/container.js \
+    $SCRIPT_PATH/src/transaction.js \
+    $SCRIPT_PATH/src/peer.js \
+    $SCRIPT_PATH/src/message.js \
+    $SCRIPT_PATH/src/inbox.js \
+    $SCRIPT_PATH/src/diff.js \
+    $SCRIPT_PATH/src/work.js \
+    $SCRIPT_PATH/src/card.js \
+    $SCRIPT_PATH/src/item.js \
+    $SCRIPT_PATH/src/history.js \
+    $SCRIPT_PATH/src/errors.js \
+    $SCRIPT_PATH/node_modules/bcryptjs/dist/bcrypt.js \
+    $SCRIPT_PATH/node_modules/circular-json/build/circular-json.js \
+    $SCRIPT_PATH/src/vendor/*.js \
     | sed 's/PACKAGE_VERSION/'$VERSION'/' \
     > dist/crypton.js
   $UGLIFY_PATH dist/crypton.js > dist/crypton.min.js
