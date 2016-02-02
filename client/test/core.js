@@ -26,7 +26,7 @@ describe('Core', function() {
 
   describe('default properties', function() {
     it('should have the correct version', function() {
-      var version = '0.0.4';
+      var version = '0.1.0';
       assert.equal(crypton.version, version);
     });
 
